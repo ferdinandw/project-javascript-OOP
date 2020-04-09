@@ -1,5 +1,4 @@
 class StopWatch {
-    // date = new Date();
     constructor (){
         this.startTime = 0;
         this.stopTime = 0;
@@ -12,9 +11,15 @@ class StopWatch {
     }
     stop () {
         this.stopTime = new Date().getTime();
-        this.totalTime = (this.stopTime - this.startTime) / 1000;
+        this.totalTime = this.stopTime - this.startTime;
         console.log(Date());
-        console.log(`Waktu yang berlalu ${this.totalTime} Detik`)
+        if (this.totalTime <= 60000){
+            this.hasil = this.totalTime / 1000;
+            console.log(`Waktu yang berlalu ${this.hasil} Detik`)
+        } else if (this.totalTime >60000){
+            this.hasil = this.totalTime / 60000;
+            console.log(`Waktu yang berlalu ${this.hasil} Menit`)
+        }
     }
 }
 
